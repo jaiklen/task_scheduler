@@ -25,6 +25,7 @@
     <div class="calendar shadow bg-white p-5">
         <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
             <h2 class="month font-weight-bold mb-0 text-uppercase">Task Scheduler</h2>
+            <button type="submit" class="btn btn-success" value="submit" onclick="relocate_home()" id = "submit">Exit</button>
         </div>
         <hr>
         <table class="table table-striped">
@@ -129,6 +130,12 @@
         </table>
 
         <!-- Optional JavaScript -->
+        ,<script>
+        function relocate_home()
+        {
+             location.href = "index.html";
+        }
+          </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
