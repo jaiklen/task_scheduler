@@ -13,8 +13,34 @@
     <style>
         body {
             min-height: 100vh;
-            background-color: #3ca55c;
-            background-image: linear-gradient(147deg, #3ca55c 0%, #b5ac49 100%);
+            background-color: white;
+
+        }
+
+        .table {
+            width: 50%;
+            border: 1px solid red;
+        }
+
+        #imp {
+            float: right;
+
+            width: 40%;
+        }
+
+        #days {
+            width: 40%;
+            float: left;
+            margin-left: 10%;
+
+
+        }
+
+
+        .del {
+
+            width: 55%;
+            margin-left: 20%;
         }
     </style>
     <title>Hello, world!</title>
@@ -25,91 +51,198 @@
         <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
             <h2 class="month font-weight-bold mb-0 text-uppercase">Task Scheduler</h2>
             <button type="submit" class="btn btn-success" value="submit" onclick="relocate_home()"
-                id="submit">Exit</button>
+                id="submit">Logout</button>
         </div>
-        <hr>
-        <!--Adding task form------------------------------------------------>
-        <button data-toggle="modal" data-target=".bs-example-modal-sm" role="button"
-            class="btn btn-outline-success my-2 my-sm-0" type="submit"><b>Add Task</b></button>
-        <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Task</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+    </div>
+    <hr>
 
-                    </div>
-                    <div class="modal-body">
-                        <form action="timetable.html" name="log-form">
-                            <div class="form-group">
-                                <label for="subject" class="control-label">Subject:</label>
-                                <input type="text" class="form-control" id="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="start_time" class="control-label">Start Time:</label>
-                                <input type="time" class="form-control" id="start_time" required>
-                                <label for="end_time" class="control-label">End Time:</label>
-                                <input type="time" class="form-control" id="end_time" required>
+    <!--Adding task form------------------------------------------------>
+    <button data-toggle="modal" data-target=".bs-example-modal-sm " role="button"
+        class="btn btn-outline-success my-2 my-sm-0" type="submit"><b>Add Task</b></button>
+    <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Task</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
 
-                            </div>
-
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <label class="input-group-text" for="inputGroupSelect01">Day</label>
-                                    </div>
-                                    <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose Day</option>
-                                      <option value="1">Monday</option>
-                                      <option value="2">Tuesday</option>
-                                      <option value="3">Wednesday</option>
-                                      <option value="4">Thursday</option>
-                                      <option value="5">Friday</option>
-                                      
-                                    </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="link" class="control-label">Link</label>
-                                    <input type="url" class="form-control" id="link" required>
-                                </div>
-                                
-
-                            </div>
-                            <button type="submit" class="btn btn-success" value="submit" >Submit</button>
-                            <button type="button" class="btn btn-danger add" data-dismiss="modal">Close</button>
-                    </div>
-                    </form>
                 </div>
+                <div class="modal-body">
+                    <form action="timetable.html" name="log-form">
+                        <div class="form-group">
+                            <label for="subject" class="control-label">Subject:</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_time" class="control-label">Start Time:</label>
+                            <input type="time" class="form-control" id="start_time" required>
+                            <label for="end_time" class="control-label">End Time:</label>
+                            <input type="time" class="form-control" id="end_time" required>
 
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Day</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Choose Day</option>
+                                    <option value="1">Monday</option>
+                                    <option value="2">Tuesday</option>
+                                    <option value="3">Wednesday</option>
+                                    <option value="4">Thursday</option>
+                                    <option value="5">Friday</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="link" class="control-label">Link</label>
+                                <input type="url" class="form-control" id="link" required>
+                            </div>
+
+
+                        </div>
+                        <button type="submit" class="btn btn-success add submit" value="submit">Submit</button>
+                        <button type="button" class="btn btn-danger clo" data-dismiss="modal">Close</button>
+                </div>
+                </form>
             </div>
+
         </div>
-    
-<hr>
+    </div>
+    <hr>
+
     <!----------------End Adding task------------------------------------>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Days</th>
-                <th scope="col">Monday</th>
-                <th scope="col">Tuesday</th>
-                <th scope="col">Wednesday</th>
-                <th scope="col">Thursday</th>
-                <th scope="col">Friday</th>
+
+    <div id="days">
+        <!-------------Monday Table------------------------------------------>
+        <table class="table table-striped 1">
+            <thead>
+                <tr>
+                    <th scope="col">Monday</th>
 
 
-            </tr>
-        </thead>
-        <tbody>
-            <!--th scope="row">Monday</th>
-            <td><button type="button" class="btn btn-outline-primary add">Add</button></td>
-            <td><button type="button" class="btn btn-outline-primary delete-row">del</button></td-->
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!-------------------------End Monday Table------------>
+        <!-------------------------Tuesday Table----------------->
+        <table class="table table-striped 2">
+            <thead>
+                <tr>
+                    <th scope="col">Tuesday</th>
 
 
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!-------------------------End Tuesday Table------------>
+        <!-------------------------Wednesday   Table------------>
+        <table class="table table-striped 3">
+            <thead>
+                <tr>
+                    <th scope="col">Wednesday</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!-------------------------End Wednesday Table------------>
+        <!--------------------------------Thursday Table------------>
+        <table class="table table-striped 4">
+            <thead>
+                <tr>
+                    <th scope="col">Thursday</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!-------------------------End Thursday Table------------>
+        <!-------------------------Friday Table------------>
+        <table class="table table-striped 5">
+            <thead>
+                <tr>
+                    <th scope="col">Friday</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!------------------------- End Friday Table----------------->
+    </div>
+
+    <div id="imp">
+        <!--------------------------Deadlines------------------------->
+        <table class="table table-striped deadlines">
+            <thead>
+                <tr>
+                    <th scope="col">Deadlines</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!----------------------End Deadlines----------------------->
+        <!----------------------------Test-------------------------->
+        <table class="table table-striped test">
+            <thead>
+                <tr>
+                    <th scope="col">Test</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <!---------------------- End Test------------------------------->
+    </div>
+
+
+    <button type="button" class="btn btn-primary del" data-dismiss="modal">Delete</button>
 
     <!-- Optional JavaScript -->
 
@@ -129,19 +262,31 @@
             location.href = "index.html";
         }
 
+
         $(document).ready(function () {
-            $(".add").click(function () {
-                var name = $("#name").val();
-                var email = $("#email").val();
-                var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email + "</td></tr>";
-                $("table tbody").append(markup);
+            $(".add").click(function (event) {
+                event.preventDefault();
+                var name = $("#subject").val();
+                var url = $("#link").val();
+                var t = $("#inputGroupSelect01").val();
+                var markup = "<tr><td><input type='checkbox' name='record'><a href = " + url + ">" + name + "</a></td></tr>";
+                $("." + t).append(markup);
+                $(".submit").hide();
+                $(".check").hide();
+            });
+
+
+            $(".clo").click(function () {
+
+                $(".submit").show();
             });
 
             // Find and remove selected table rows
-            $(".delete-row").click(function () {
+            $(".del").click(function () {
+                $(".check").show();
                 $("table tbody").find('input[name="record"]').each(function () {
                     if ($(this).is(":checked")) {
-                        $(this).parents("tr").remove();
+                        $(this).parents("td").remove();
                     }
                 });
             });
